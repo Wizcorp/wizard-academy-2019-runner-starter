@@ -18,6 +18,11 @@ export class TitleView extends PIXI.Container implements IView {
 		this.on('pointerdown', () => {
 			this.emit('openView', 'game');
 		});
+
+		const mySprite = new PIXI.Sprite(PIXI.utils.TextureCache['unicorn']);
+		mySprite.anchor.set(0.5, 0.5);
+		mySprite.position.set(0, -200);
+		this.centerContainer.addChild(mySprite);
 	}
 
 	resize (gameWidth: number, gameHeight: number) {

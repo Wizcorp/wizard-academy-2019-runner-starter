@@ -7,7 +7,7 @@ import { IView } from './interfaces';
 
 const minRatio = 1242 / 2688; // iPhone X full-screen
 const maxRatio = 1242 / 1700; // iPhone 6/7/8 with browser visible
-const gameWidth = 750;
+const gameWidth = 750; // this is the virtual witdh inside PIXI
 let gameHeight = gameWidth;
 
 let app = new PIXI.Application({width: gameWidth, height: gameHeight});
@@ -73,17 +73,19 @@ function openView(viewName: string) {
 }
 
 PIXI.loader
-	// .add('my_image', require('./path/to/image.png'))
+	.add('unicorn', require('./assets/images/unicorn.png'))
 	.load(() => setup());
 
 function setup() {
 	registerView('title', new TitleView());
 	registerView('game', new GameView());
 	openView('title');
+
+	// launch the game loop
 	update();
 }
 
-
+// game loop
 let lastTime = Date.now();
 function update() {
 	const now = Date.now();
