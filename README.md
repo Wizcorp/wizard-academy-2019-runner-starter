@@ -1,5 +1,9 @@
 # Wizard Academy 2019 runner
 
+### Prerequisite
+
+Node (https://nodejs.org/)
+
 ### Setup
 After cloning the repository, run:
 
